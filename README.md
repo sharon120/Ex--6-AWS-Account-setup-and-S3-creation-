@@ -1,46 +1,89 @@
-# Ex--6-AWS-Account-setup-and-S3-creation
+# Ex.2 Cloud Storage Creation (S3) and Launching an EC2 Instance in AWS
 #  NAME : Sharon Harshini L M
 # REG NO : 212223040193
 
-## Introduction
-In this lab, we are going to be introduced to one of the famous Cloud Service providers, Amazon Web Services (AWS). We will work on Amazon Simple Storage Service (S3), which provides storage through web service interfaces (REST, SOAP, and BitTorrent). In S3, the data is stored in the form of buckets. Buckets serve as root folders where we can add, create, or upload files and folders. We can create multiple buckets for different purposes, and each bucket can have different access control policies.
+## Aim
+To create a Simple Storage Service (S3) in AWS and to launch an EC2 instance in AWS.
 
-## Objectives
-Create a Bucket in Amazon S3.
-Add Objects (files and folders) to the bucket.
-Access, move, download, and delete the objects.
-Delete the Bucket.
+---
 
-### Step 1: Choose S3 Service
-Choose the S3 service from the list of services provided by AWS.
+## Procedure
 
-### Step 2: Create a Unique Bucket
-After selecting the S3 service, click on the "Create Bucket" button on the page. The bucket name must be unique, contain no uppercase letters, and have no special characters. If you enter any of these, an error will display, preventing the bucket from being created.
+### a) Steps to Create a First S3 Bucket
 
+1. **Sign in to AWS Management Console**
+   - Go to: https://console.aws.amazon.com/s3
 
-For region selection, choose a region from the available list. It is recommended to select a region nearby your location for higher availability. In this lab, I selected Sydney, as it is near my country, New Zealand. Remember to provide a unique bucket name with no special characters or uppercase letters.
+2. **Open the S3 Service**
+   - Search for **S3** in the search bar and open it.
 
-### Step 3: Upload Files to the Bucket
-Now, I have uploaded some files into the bucket I just created. There are no restrictions on uploading file types, but the size of each file must be less than 5 terabytes.
+3. **Create Bucket**
+   - Click the **Create bucket** button.
 
-You can upload files of any extension, folders, and subfolders. The images below explain that you can drag and drop files or select them from your computer. After uploading a file, you can download, cut, copy, make it public, rename, or delete it. Making a file public means everyone can access it, and you will receive a link (e.g., https://s3-ap-southeast-2.amazonaws.com/...) to share it.
+4. **Configure Bucket Settings**
+   - **Bucket name**: Choose a globally unique name.
+   - **AWS Region**: Select the region where you want to store your data.
 
-### Step 4: Upload a Folder
-You can also upload a folder to the bucket. If your local folder contains subfolders and data, all data inside the parent folder will be uploaded. The images below show how to upload a folder by dragging and dropping or browsing.
+5. **Object Ownership**
+   - Choose:
+     - **ACLs disabled** (recommended) — Bucket owner has full control.
+     - **ACLs enabled** — Control access via access control lists.
 
-### Step 5: Delete the Bucket
-To delete a bucket, you must retype the bucket name. This policy is implemented by Amazon to confirm your action because deleting a bucket can remove large amounts of data.
+6. **Block Public Access Settings**
+   - By default, public access is blocked. Leave it as-is unless you need public access.
 
-## Output:
-<img width="1279" height="587" alt="image" src="https://github.com/user-attachments/assets/e1831f6c-487b-4de5-9c4a-b0747e045671" />
+7. **Bucket Versioning** (Optional)
+   - Choose whether to enable versioning for objects in the bucket.
 
-<img width="1328" height="617" alt="image" src="https://github.com/user-attachments/assets/25365267-d86f-4e08-893b-30e5e897c38b" />
+8. **Encryption** (Optional)
+   - Select encryption options: **SSE-S3**, **SSE-KMS**, or none.
 
-<img width="937" height="795" alt="image" src="https://github.com/user-attachments/assets/6e88dde9-6d64-4f8d-8edb-2e96a20b3072" />
+9. **Advanced Settings** (Optional)
+   - Add tags, configure logging, etc.
 
-<img width="1308" height="556" alt="image" src="https://github.com/user-attachments/assets/4705c83f-79e2-4a78-84ef-3ad73facc5fc" />
+10. **Create the Bucket**
+    - Click **Create bucket** at the bottom of the page.
 
-<img width="1319" height="623" alt="image" src="https://github.com/user-attachments/assets/bd65e872-852a-4ac2-b79a-2bd92f7718c6" />
+---
+
+### b) Steps to Launch an EC2 Instance
+
+1. Go to the **EC2 Dashboard** in AWS Console.
+2. Click on **Launch Instance**.
+3. **Choose an Amazon Machine Image (AMI)** (e.g., Amazon Linux).
+4. **Select an Instance Type** (e.g., t2.micro for Free Tier).
+5. **Create or Choose a Key Pair** for SSH access.
+6. **Configure Network Settings** (use default VPC/subnet).
+7. **Configure Storage** (default root volume is fine).
+8. **Review and Launch**
+   - Review settings and click **Launch Instance**.
+9. **Wait for the instance** to enter the **running** state.
+
+---
+
+### c) Connect to Your EC2 Instance
+
+- **Linux Users**: Use SSH command with your `.pem` key.
+- **Windows Users**: Use RDP with decrypted admin password.
+
+---
+
+### d) Steps to Clean Up (Terminate the Instance)
+
+1. Go to **EC2 Instances**.
+2. Select your instance → **Instance State** → **Terminate**.
+
+---
+
+## Snapshots
+#### Snap Shot 1: Simple Storage Service (S3)
+<img width="918" height="492" alt="image" src="https://github.com/user-attachments/assets/100eb5e0-6ac8-4d9e-95b0-cca214d311f3" />
+
+#### Snap Shot 2:  EC2 (Elastic Compute Cloud) – Instance
+<img width="1303" height="708" alt="image" src="https://github.com/user-attachments/assets/fd118cae-1112-4911-aeb8-8171e5928ad7" />
+
+---
 
 ## Result
-Successfully created, managed, and deleted an S3 bucket on AWS, demonstrating the ability to upload, access, and control objects within Amazon S3.
+
+Thus, a **Simple Storage Service (S3)** and **EC2 (Elastic Compute Cloud)** instance has been successfully created and launched in AWS.
